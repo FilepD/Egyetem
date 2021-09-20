@@ -58,36 +58,36 @@ public class Jatek {
         rendezgetes(list);
     }
     
-    void formatalas(String nev,int tipp, int fieldSize){
-        String intFormat = "%" + fieldSize + "d";
-        String stringFormat = "%" + fieldSize + "S";
+    void formatalas(String nev,int tipp, int stringSize, int intSize){
+        String intFormat = "%" + intSize + "d";
+        String stringFormat = "%" + stringSize + "S";
         //System.out.printf("%s tippje: %d %s \n",nev,tipp, (tipp==nyeroszam? "NYERT!" : "NEM NYERT!") );
         System.out.printf(stringFormat+" tippje:" + intFormat+ " %s \n",nev,tipp, (tipp==nyeroszam? "NYERT!" : "NEM NYERT!") );
     }
     
     void rendezgetes(ArrayList<Jatekos> list){
         
-        Rendezes rendezeses =Rendezes.JOBBRA ;
+        Rendezes rendezeses =Rendezes.KOZEPRE ;
                 
-        System.out.println("\nJOBBRA\n");
+        System.out.println("\nKOZEPRE\n");
         //rendezeses =Rendezes.BALRA ;
          switch (rendezeses){
             case BALRA:
                 for (Jatekos tipp : list) {
                     //System.out.printf("%s tippje: %d %s \n",tipp.nev,tipp.tipp, (tipp.tipp==nyeroszam? "NYERT!" : "NEM NYERT!") );
-                    formatalas(tipp.nev,tipp.tipp,25);
+                    formatalas(tipp.nev,tipp.tipp,10,5);
                 }
                 break;
             case KOZEPRE:
                 for (Jatekos tipp : list) {
                     //System.out.printf("%15s tippje: %15d %15s \n",tipp.nev,tipp.tipp, (tipp.tipp==nyeroszam? "NYERT!" : "NEM NYERT!") );
-                    formatalas(tipp.nev,tipp.tipp,50);
+                    formatalas(tipp.nev,tipp.tipp,50,5);
                     }
                 break;
             case JOBBRA:
                 for (Jatekos tipp : list) {
                     //System.out.printf("%30s tippje: %30d %30s \n",tipp.nev,tipp.tipp, (tipp.tipp==nyeroszam? "NYERT!" : "NEM NYERT!") );
-                    formatalas(tipp.nev,tipp.tipp,100);
+                    formatalas(tipp.nev,tipp.tipp,75,5);
                 }
                 break;
         } 
